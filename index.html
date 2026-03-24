@@ -284,7 +284,7 @@
             msg += `\nإجمالي المبلغ: ${document.getElementById('cart-total').innerText}`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
-
+localStorage.clear();
         window.onload = () => { displayProducts(); updateCartUI(); };
     </script>
 </body>

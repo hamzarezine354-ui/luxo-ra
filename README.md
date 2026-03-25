@@ -10,7 +10,7 @@
 
 | الخدمة | الرابط المباشر |
 | :--- | :--- |
-| **المتجر المباشر (Live Site)** | [👉 اضغط هنا لفتح المتجر](https://hamzarezine354-ui.github.io/MY-WEBSITE/) |
+| **المتجر المباشر (Live Site)** | [👉 اضغط هنا لفتح المتجر]( https://luxora-accessories.github.io/luxo-r/) |
 
 ---
 

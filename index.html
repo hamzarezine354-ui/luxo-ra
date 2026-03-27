@@ -30,20 +30,11 @@
             min-height: 100vh; 
         }
 
-        .top-container {
+        /* تعديل الـ Header ليكون هو الملتصق مباشرة دون مساحة بيضاء فوقه */
+        header { 
             position: sticky;
             top: 0;
             z-index: 1000;
-            width: 100%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        /* تم إلغاء عرض شريط الإعلانات */
-        .announcement-bar {
-            display: none;
-        }
-
-        header { 
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 8%; 
@@ -51,6 +42,7 @@
             justify-content: space-between; 
             align-items: center; 
             direction: rtl;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .logo { font-size: 26px; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
@@ -156,20 +148,14 @@
         }
     </style>
 </head>
-<body id="body">
+<body>
 
-    <div class="top-container">
-        <div class="announcement-bar">
-            <div class="announcement-text">✨ نقدم تخفيض 50% بمناسبة الافتتاح لمتجر LUXORA ✨</div>
+    <header>
+        <div class="logo">LUXORA</div>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 <span id="cart-count">0</span>
         </div>
-
-        <header id="header">
-            <div class="logo">LUXORA</div>
-            <div class="cart-icon" onclick="toggleCart()">
-                🛒 <span id="cart-count">0</span>
-            </div>
-        </header>
-    </div>
+    </header>
 
     <main id="products-container"></main>
 
@@ -212,7 +198,6 @@
             { id: 6, name: "خاتم فضة عيار 925 للرجال", price: 7000, description: "خاتم رجالي فضي، مقاس 11.", img: "https://fathyibrahim.com/cdn/shop/files/MR00-3S-8-1_1000x.jpg?v=1742217351" },
         ];
 
-        localStorage.removeItem('luxe_products'); 
         let products = defaultProducts; 
         let cart = JSON.parse(localStorage.getItem('luxora_cart')) || [];
 
@@ -236,13 +221,9 @@
             document.getElementById('product-qty').value = 1;
             document.getElementById('modal-add-btn').onclick = () => addToCart(p, parseInt(document.getElementById('product-qty').value));
             document.getElementById('product-modal').style.display = 'flex';
-            document.body.classList.add('modal-open'); 
         }
 
-        function closeModal() { 
-            document.getElementById('product-modal').style.display = 'none'; 
-            document.body.classList.remove('modal-open'); 
-        }
+        function closeModal() { document.getElementById('product-modal').style.display = 'none'; }
 
         function addToCart(product, qty) {
             const cartId = Date.now();
@@ -261,7 +242,7 @@
             let total = 0;
             container.innerHTML = cart.map(item => {
                 total += (item.price * item.qty);
-                return `<div class="cart-item" style="background: rgba(0,0,0,0.03); margin-bottom: 10px; padding: 10px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                return `<div style="background: rgba(0,0,0,0.03); margin-bottom: 10px; padding: 10px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
                     <div><strong>${item.name}</strong><br><small>${item.qty} × ${item.price} درهم</small></div>
                     <button onclick="removeFromCart(${item.cartId})" style="border:none; color:red; background:none; cursor:pointer;">حذف</button>
                 </div>`;
@@ -277,14 +258,12 @@
 
         function toggleCart() {
             document.getElementById('cart-sidebar').classList.toggle('active');
-            document.body.classList.toggle('cart-open');
         }
 
         function sendWhatsApp() {
             if (cart.length === 0) return;
             const phone = "212621445495";
-            let msg = "طلب جديد من Luxora:\n";
-            cart.forEach(i => msg += `- ${i.name} (عدد: ${i.qty})\n`);
+            let msg = "طلب جديد من Luxora:\n" + cart.map(i => `- ${i.name} (عدد: ${i.qty})`).join('\n');
             msg += `\nإجمالي المبلغ: ${document.getElementById('cart-total').innerText}`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }

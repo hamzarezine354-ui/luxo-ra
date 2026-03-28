@@ -124,19 +124,19 @@
         .selection-half h2 {
             color: white;
             font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            letter-spacing: 8px;
+            font-size: 3.5rem;
+            letter-spacing: 10px;
             text-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             transition: var(--transition);
         }
         .selection-half p {
             color: var(--gold);
             font-family: 'Cairo', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 3px;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
             transition: var(--transition);
         }
         .selection-half:hover h2 { transform: translateY(-10px); color: var(--gold); }
@@ -176,10 +176,10 @@
         
         .logo-text { 
             font-family: 'Cinzel', serif;
-            font-size: 30px; 
+            font-size: 32px; 
             font-weight: 900; 
             color: var(--gold);
-            letter-spacing: 6px;
+            letter-spacing: 8px;
             text-align: center;
             flex-grow: 1;
         }
@@ -190,7 +190,7 @@
             padding: 5px;
         }
         .cart-icon-svg {
-            width: 30px; height: 30px;
+            width: 32px; height: 32px;
             fill: none; stroke: var(--gold); stroke-width: 1.2;
             transition: var(--transition);
         }
@@ -199,11 +199,11 @@
         #cart-count { 
             background: var(--gold);
             color: var(--dark);
-            font-size: 11px;
-            width: 22px; height: 22px;
+            font-size: 12px;
+            width: 24px; height: 24px;
             display: flex; align-items: center; justify-content: center;
             border-radius: 50%; 
-            position: absolute; top: -5px; right: -8px;
+            position: absolute; top: -8px; right: -10px;
             font-weight: 900;
             box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
         }
@@ -213,7 +213,7 @@
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
             gap: 50px; 
-            padding: 60px 5%; 
+            padding: 80px 5%; 
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -221,7 +221,7 @@
         .product-card { 
             background: var(--white); 
             border: 1px solid #eeeeee;
-            padding: 20px; 
+            padding: 25px; 
             transition: var(--transition);
             cursor: pointer;
             text-align: center;
@@ -235,32 +235,33 @@
             background: var(--dark);
             z-index: 0;
             transition: var(--transition);
-            opacity: 0.02;
+            opacity: 0.03;
         }
         .product-card:hover { 
             box-shadow: var(--shadow-lg);
             border-color: var(--gold);
-            transform: translateY(-10px);
+            transform: translateY(-15px);
         }
         .product-card:hover::before { height: 100%; }
         
         .img-container {
             width: 100%;
-            height: 320px;
+            height: 380px;
             overflow: hidden;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             position: relative;
+            border-radius: 2px;
         }
         .product-card img { 
             width: 100%; height: 100%; object-fit: cover; 
-            transition: 1s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: 1.2s cubic-bezier(0.2, 1, 0.3, 1);
         }
         .product-card:hover img { transform: scale(1.1); }
         
         .product-card h3 { 
-            font-size: 1.1rem; 
+            font-size: 1.2rem; 
             color: var(--dark);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-weight: 700;
             letter-spacing: 1px;
             position: relative;
@@ -268,7 +269,7 @@
         .product-card .price { 
             color: var(--gold); 
             font-weight: 900; 
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-family: 'Cinzel', serif;
             display: block;
         }
@@ -276,145 +277,124 @@
         /* --- 7. تفاصيل المنتج (Modal) --- */
         .modal { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.95); z-index: 5000; justify-content: center; align-items: center; 
-            backdrop-filter: blur(15px); 
+            background: rgba(0,0,0,0.96); z-index: 5000; justify-content: center; align-items: center; 
+            backdrop-filter: blur(20px); 
             padding: 20px;
         }
         .modal-content { 
-            background: var(--white); width: 100%; max-width: 1000px; 
+            background: var(--white); width: 100%; max-width: 1100px; 
             display: flex; flex-wrap: wrap; position: relative; 
             overflow: hidden; border: 1px solid var(--gold);
-            animation: modalSlideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: modalSlideUp 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            max-height: 90vh;
         }
         @keyframes modalSlideUp { 
-            from { opacity: 0; transform: translateY(50px); } 
+            from { opacity: 0; transform: translateY(60px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
 
         .close-modal {
-            position: absolute; top: 20px; left: 20px; z-index: 100; 
-            cursor: pointer; color: var(--gold); font-size: 20px; 
-            background: var(--dark); width: 45px; height: 45px; 
+            position: absolute; top: 25px; left: 25px; z-index: 100; 
+            cursor: pointer; color: var(--gold); font-size: 22px; 
+            background: var(--dark); width: 50px; height: 50px; 
             display: flex; align-items: center; justify-content: center; 
             border-radius: 50%; border: 1px solid var(--gold);
             transition: var(--transition);
         }
         .close-modal:hover { background: var(--gold); color: var(--dark); transform: rotate(90deg); }
 
-        .modal-img { flex: 1.2; min-width: 400px; height: 600px; object-fit: cover; }
+        .modal-img { flex: 1.3; min-width: 450px; height: 700px; object-fit: cover; }
         .modal-info { 
-            flex: 1; padding: 60px; min-width: 400px; background: var(--white); 
+            flex: 1; padding: 70px; min-width: 450px; background: var(--white); 
             display: flex; flex-direction: column; justify-content: center; 
         }
         
-        .modal-info h2 { font-family: 'Cinzel', serif; font-size: 2.2rem; margin-bottom: 20px; color: var(--dark); border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 10px; }
-        .modal-info p { color: #555; font-size: 1.1rem; line-height: 2; margin-bottom: 35px; text-align: justify; }
+        .modal-info h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 25px; color: var(--dark); border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 15px; }
+        .modal-info p { color: #444; font-size: 1.15rem; line-height: 2.2; margin-bottom: 40px; text-align: justify; }
 
-        .qty-box { margin-bottom: 30px; }
-        .qty-box label { font-size: 13px; color: #999; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 10px; }
-        .qty-box input { width: 80px; padding: 12px; border: 1px solid #ddd; outline: none; font-weight: bold; text-align: center; }
+        .qty-box { margin-bottom: 40px; }
+        .qty-box label { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 15px; }
+        .qty-box input { width: 100px; padding: 15px; border: 1px solid #ccc; outline: none; font-weight: bold; text-align: center; font-size: 1.1rem; }
 
         .add-btn { 
             background: var(--dark); color: var(--gold); border: 1px solid var(--gold); 
-            padding: 22px; cursor: pointer; width: 100%; font-weight: 900; 
-            text-transform: uppercase; letter-spacing: 4px; transition: var(--transition);
-            font-size: 1rem;
+            padding: 25px; cursor: pointer; width: 100%; font-weight: 900; 
+            text-transform: uppercase; letter-spacing: 5px; transition: var(--transition);
+            font-size: 1.1rem;
         }
-        .add-btn:hover { background: var(--gold); color: var(--dark); letter-spacing: 6px; }
+        .add-btn:hover { background: var(--gold); color: var(--dark); letter-spacing: 7px; }
 
         /* --- 8. الحقيبة الجانبية (Sidebar) --- */
         .sidebar { 
-            position: fixed; top: 0; left: -100%; width: 450px; height: 100vh; 
-            background: var(--white); z-index: 6000; padding: 60px 40px; 
-            transition: 0.7s cubic-bezier(0.9, 0, 0.1, 1); 
-            box-shadow: 20px 0 60px rgba(0,0,0,0.3);
-            border-right: 4px solid var(--gold);
+            position: fixed; top: 0; left: -100%; width: 500px; height: 100vh; 
+            background: var(--white); z-index: 6000; padding: 70px 50px; 
+            transition: 0.8s cubic-bezier(0.9, 0, 0.1, 1); 
+            box-shadow: 25px 0 70px rgba(0,0,0,0.4);
+            border-right: 5px solid var(--gold);
         }
         .sidebar.active { left: 0; }
 
         .sidebar-header {
             display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 20px;
+            margin-bottom: 60px; border-bottom: 1px solid #eee; padding-bottom: 25px;
         }
-        .sidebar-header h3 { font-family: 'Cinzel'; font-size: 24px; color: var(--gold); letter-spacing: 4px; }
+        .sidebar-header h3 { font-family: 'Cinzel'; font-size: 28px; color: var(--gold); letter-spacing: 5px; }
 
         .cart-item {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 0; border-bottom: 1px solid #f9f9f9;
-            animation: fadeIn 0.5s ease;
+            padding: 30px 0; border-bottom: 1px solid #f2f2f2;
+            animation: fadeIn 0.6s ease;
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        .cart-item-info strong { display: block; font-size: 15px; margin-bottom: 5px; color: var(--dark); }
-        .cart-item-info span { color: var(--gold); font-family: 'Cinzel'; font-size: 14px; font-weight: 700; }
-        .remove-item { cursor: pointer; color: #bbb; transition: 0.3s; padding: 10px; }
-        .remove-item:hover { color: #ff4444; transform: scale(1.2); }
+        .cart-item-info strong { display: block; font-size: 17px; margin-bottom: 8px; color: var(--dark); }
+        .cart-item-info span { color: var(--gold); font-family: 'Cinzel'; font-size: 16px; font-weight: 700; }
+        .remove-item { cursor: pointer; color: #ccc; transition: 0.4s; padding: 12px; font-size: 18px; }
+        .remove-item:hover { color: #e74c3c; transform: scale(1.3); }
 
         .whatsapp-btn { 
             background: var(--dark); color: var(--gold); border: 2px solid var(--gold); 
-            padding: 22px; cursor: pointer; width: 100%; font-weight: 900; 
-            margin-top: 50px; letter-spacing: 3px; text-transform: uppercase;
-            transition: var(--transition);
+            padding: 25px; cursor: pointer; width: 100%; font-weight: 900; 
+            margin-top: 60px; letter-spacing: 4px; text-transform: uppercase;
+            transition: var(--transition); font-size: 1.1rem;
         }
         .whatsapp-btn:hover { background: #25D366; color: white; border-color: #25D366; }
 
         /* --- 9. التنبيهات (Toasts) --- */
         #toast { 
-            position: fixed; bottom: 50px; left: 50%; transform: translateX(-50%); 
-            background: var(--dark); color: var(--gold); padding: 18px 50px; 
-            font-weight: 900; opacity: 0; transition: 0.6s; z-index: 9999;
-            border: 1px solid var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-            letter-spacing: 2px; pointer-events: none;
+            position: fixed; bottom: 60px; left: 50%; transform: translateX(-50%); 
+            background: var(--dark); color: var(--gold); padding: 20px 60px; 
+            font-weight: 900; opacity: 0; transition: 0.7s; z-index: 9999;
+            border: 1px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            letter-spacing: 3px; pointer-events: none;
         }
 
-        /* ============================================================
-           نظام الاستجابة (Responsive Design) - النسخة المعدلة للجوال
-           ============================================================ */
-        
+        /* --- 10. ميديا كويري للجوال --- */
         @media (max-width: 1024px) {
-            main { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-            header { padding: 15px 5%; }
+            main { grid-template-columns: repeat(2, 1fr); gap: 35px; }
+            .modal-img { min-width: 100%; height: 500px; }
+            .modal-info { min-width: 100%; padding: 40px; }
         }
 
         @media (max-width: 768px) {
             #entry-screen { flex-direction: column; }
-            .selection-half h2 { font-size: 2.2rem; letter-spacing: 4px; }
-            .selection-half p { opacity: 1; transform: translateY(0); font-size: 0.9rem; }
+            .selection-half h2 { font-size: 2.5rem; letter-spacing: 6px; }
             
-            header { height: 75px; padding: 10px 4%; }
-            .logo-text { font-size: 20px; letter-spacing: 3px; }
-            #back-btn-container span { display: none; }
-
-            /* المنتجات: 2 في السطر */
-            main { 
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 12px; 
-                padding: 25px 12px; 
-            }
-            .product-card { padding: 12px; border-radius: 4px; }
-            .img-container { height: 185px; margin-bottom: 12px; }
+            header { height: 80px; padding: 10px 5%; }
+            .logo-text { font-size: 22px; letter-spacing: 4px; }
             
-            .product-card h3 { 
-                font-size: 0.85rem; 
-                margin-bottom: 6px; 
-                white-space: nowrap; 
-                overflow: hidden; 
-                text-overflow: ellipsis; 
-            }
-            .product-card .price { font-size: 1rem; }
+            main { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 20px 10px; }
+            .product-card { padding: 12px; }
+            .img-container { height: 200px; margin-bottom: 12px; }
+            .product-card h3 { font-size: 0.9rem; }
+            .product-card .price { font-size: 1.1rem; }
 
-            .modal-content { flex-direction: column; max-height: 92vh; overflow-y: auto; width: 95%; }
-            .modal-img { min-width: 100%; height: 320px; }
-            .modal-info { min-width: 100%; padding: 35px 25px; }
-            .modal-info h2 { font-size: 1.7rem; }
-
-            .sidebar { width: 100%; padding: 40px 25px; }
-        }
-
-        @media (max-width: 480px) {
-            main { gap: 10px; padding: 15px 8px; }
-            .img-container { height: 165px; }
-            .logo-text { font-size: 18px; letter-spacing: 1px; }
+            .modal-content { max-height: 95vh; overflow-y: auto; }
+            .modal-img { height: 320px; }
+            .modal-info { padding: 30px 20px; }
+            .modal-info h2 { font-size: 1.8rem; }
+            
+            .sidebar { width: 100%; padding: 40px 20px; }
         }
     </style>
 </head>
@@ -444,8 +424,8 @@
 
     <header>
         <div id="back-btn-container" onclick="goBackToHome()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            <span style="font-size: 12px; margin-right: 8px; font-weight: 700; letter-spacing: 2px;">BACK</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span style="font-size: 11px; margin-right: 10px; font-weight: 900; letter-spacing: 3px;">RETURN</span>
         </div>
 
         <div class="logo-text">LUXORA</div>
@@ -464,10 +444,10 @@
             <img id="modal-image" src="" class="modal-img">
             <div class="modal-info">
                 <h2 id="modal-title"></h2>
-                <p id="modal-price" style="font-family: 'Cinzel'; color: var(--gold); font-weight: 900; font-size: 1.5rem; margin-bottom: 10px;"></p>
+                <p id="modal-price" style="font-family: 'Cinzel'; color: var(--gold); font-weight: 900; font-size: 1.8rem; margin-bottom: 15px;"></p>
                 <p id="modal-description"></p>
                 <div class="qty-box">
-                    <label>Quantity / الكمية</label>
+                    <label>Quantity / اختيار الكمية</label>
                     <input type="number" id="product-qty" value="1" min="1">
                 </div>
                 <button id="modal-add-btn" class="add-btn">Add To Royal Bag</button>
@@ -477,14 +457,14 @@
 
     <div id="cart-sidebar" class="sidebar">
         <div class="sidebar-header">
-            <h3>THE SELECTION</h3>
-            <span style="cursor: pointer; font-size: 24px; color: var(--gold);" onclick="toggleCart()">✕</span>
+            <h3>MY SELECTION</h3>
+            <span style="cursor: pointer; font-size: 28px; color: var(--gold);" onclick="toggleCart()">✕</span>
         </div>
-        <div id="cart-items-container" style="max-height: 55vh; overflow-y: auto; padding-right: 10px;"></div>
-        <div id="cart-summary" style="margin-top: 40px; padding-top: 25px; border-top: 2px solid #eee;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                <span style="font-weight: 300;">TOTAL / الإجمالي</span>
-                <span id="final-price" style="font-family: 'Cinzel'; font-weight: 900; color: var(--gold); font-size: 1.4rem;">0 درهم</span>
+        <div id="cart-items-container" style="max-height: 50vh; overflow-y: auto; padding-right: 10px;"></div>
+        <div id="cart-summary" style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #f5f5f5;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+                <span style="font-weight: 400; color: #888; letter-spacing: 2px;">TOTAL / الإجمالي</span>
+                <span id="final-price" style="font-family: 'Cinzel'; font-weight: 900; color: var(--gold); font-size: 1.6rem;">0 درهم</span>
             </div>
             <button class="whatsapp-btn" onclick="checkout()">Confirm Via WhatsApp</button>
         </div>
@@ -493,134 +473,140 @@
     <div id="toast">ADDED TO COLLECTION</div>
 
     <script>
-        // قاعدة البيانات الكاملة لجميع المنتجات الـ 11 (بدون اختصارات)
+        /* قاعدة البيانات المفصلة للمنتجات */
         const allProducts = [
-            // --- فئة النساء (Women) ---
+            // --- النساء ---
             { 
                 id: 1, type: 'women', name: "عقد الزمرد الملكي", price: 3400, 
-                description: "تحفة فنية من الزمرد الكولومبي الأصيل، محاطة بإطار من الذهب الأبيض عيار 18 قيراط. صُممت هذه القطعة لتخطف الأنظار.", 
+                description: "تحفة فنية من الزمرد الكولومبي الأصيل، محاطة بإطار من الذهب الأبيض عيار 18 قيراط. صُممت هذه القطعة لتخطف الأنظار في المناسبات الملكية الفاخرة.", 
                 img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800" 
             },
             { 
-                id: 11, type: 'women', name: "خاتم الياقوت القرمزي", price: 2100, 
-                description: "خاتم نسائي ساحر مرصع بحجر ياقوت أحمر طبيعي، يحيط به هالة من الفصوص الصغيرة المتلألئة لإطلالة مفعمة بالأنوثة والفخامة.", 
-                img: "https://media.istockphoto.com/id/2077222877/fr/photo/bague-bijoux-pierres-pr%C3%A9cieuses.webp?a=1&b=1&s=612x612&w=0&k=20&c=OUIgGMG3OGlm4MnWHh3HnHY7NNypX-WglWqKZcDc5CY=" 
-            },
-            { 
                 id: 2, type: 'women', name: "خاتم الألماس الهندسي", price: 1850, 
-                description: "خاتم عصري يجسد التوازن بين الفخامة والبساطة. يتميز بقطع ألماس مركزية تعكس الضوء من كل زاوية.", 
+                description: "خاتم عصري يجسد التوازن بين الفخامة والبساطة. يتميز بقطع ألماس مركزية تعكس الضوء من كل زاوية، مما يجعله مثالياً للاستخدام اليومي الفاخر.", 
                 img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800" 
             },
             { 
                 id: 3, type: 'women', name: "سوار الكريستال الناعم", price: 920, 
-                description: "سوار رقيق مصنوع يدويًا من كريستال السواروفسكي الصافي، يضفي لمسة من الأنوثة والنعومة على معصمك.", 
+                description: "سوار رقيق مصنوع يدويًا من كريستال السواروفسكي الصافي، يضفي لمسة من الأنوثة والنعومة على معصمك مع بريق هادئ لا يضاهى.", 
                 img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800" 
             },
             { 
                 id: 4, type: 'women', name: "أقراط الياقوت الأزرق", price: 1200, 
-                description: "أقراط متدلية سحرية تضم أحجار الياقوت الأزرق الطبيعي. مستوحاة من العصور الكلاسيكية العريقة.", 
+                description: "أقراط متدلية سحرية تضم أحجار الياقوت الأزرق الطبيعي. مستوحاة من العصور الكلاسيكية العريقة لتعطيك إطلالة الأميرات.", 
                 img: "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=800" 
             },
             { 
                 id: 5, type: 'women', name: "قلادة اللؤلؤ الطبيعي", price: 2700, 
-                description: "عقد من لآلئ البحار الجنوبية المختارة بعناية فائقة، تتوسطها قفلة من الذهب الخالص.", 
+                description: "عقد من لآلئ البحار الجنوبية المختارة بعناية فائقة، تتوسطها قفلة من الذهب الخالص عيار 22 لضمان الفخامة والجودة.", 
                 img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800" 
             },
-
-            // --- فئة الرجال (Men) ---
+            { 
+                id: 11, type: 'women', name: "خاتم الياقوت القرمزي", price: 2100, 
+                description: "خاتم نسائي ساحر مرصع بحجر ياقوت أحمر طبيعي، يحيط به هالة من الفصوص الصغيرة المتلألئة لإطلالة مفعمة بالأنوثة.", 
+                img: "https://media.istockphoto.com/id/2077222877/fr/photo/bague-bijoux-pierres-pr%C3%A9cieuses.webp?a=1&b=1&s=612x612&w=0&k=20&c=OUIgGMG3OGlm4MnWHh3HnHY7NNypX-WglWqKZcDc5CY=" 
+            },
+            // --- الرجال ---
             { 
                 id: 6, type: 'men', name: "ساعة ليمتد إيديشين Gold", price: 5200, 
-                description: "ساعة ميكانيكية ذات إصدار محدود، تتميز بهيكل مطلي بالذهب عيار 24. دقة سويسرية متناهية.", 
+                description: "ساعة ميكانيكية ذات إصدار محدود، تتميز بهيكل مطلي بالذهب عيار 24. دقة سويسرية متناهية تليق بالرجل العصري الطموح.", 
                 img: "https://images.unsplash.com/photo-1772949400376-5965cc2256ea?q=80&w=870" 
             },
             { 
                 id: 8, type: 'men', name: "خاتم فضة 925 نقي", price: 7000, 
-                description: "قطعة فنية فريدة من الفضة النقية بتصميم مستوحى من العمارة الأندلسية العريقة.", 
+                description: "قطعة فنية فريدة من الفضة النقية بتصميم مستوحى من العمارة الأندلسية العريقة، مرصع بحجر عقيق يماني أصلي.", 
                 img: "https://fathyibrahim.com/cdn/shop/files/MR00-3S-8-1_1000x.jpg?v=1742217351" 
             },
             { 
                 id: 9, type: 'men', name: "ساعة الستانلس الكلاسيكية", price: 4100, 
-                description: "ساعة تجمع بين العملية والفخامة، مع ميناء أسود ملكي وعقارب مضيئة في الظلام.", 
+                description: "ساعة تجمع بين العملية والفخامة، مع ميناء أسود ملكي وعقارب مضيئة في الظلام. مقاومة للماء حتى عمق 100 متر.", 
                 img: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=800" 
             },
             { 
                 id: 10, type: 'men', name: "أزرار أكمام ألماسية", price: 1550, 
-                description: "أزرار أكمام مصنوعة من البلاتين المرصع بحبيبات الألماس الدقيقة لتكتمل أناقتك الرسمية.", 
+                description: "أزرار أكمام مصنوعة من البلاتين المرصع بحبيبات الألماس الدقيقة لتكتمل أناقتك الرسمية في الاجتماعات والمناسبات الخاصة.", 
                 img: "https://images.unsplash.com/photo-1617113931036-70138927054a?w=800" 
             }
         ];
 
-        let cart = JSON.parse(localStorage.getItem('luxora_full_cart')) || [];
+        let cart = JSON.parse(localStorage.getItem('luxora_full_storage')) || [];
 
-        // منطق التحكم والدخول للمتجر
         function enterStore(category) {
             const filtered = allProducts.filter(p => p.type === category);
             renderProducts(filtered);
             document.getElementById('entry-screen').style.transform = 'translateY(-100%)';
             document.getElementById('back-btn-container').classList.add('visible');
-            window.scrollTo(0,0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // العودة لشاشة اختيار القسم
         function goBackToHome() {
             document.getElementById('entry-screen').style.transform = 'translateY(0)';
             document.getElementById('back-btn-container').classList.remove('visible');
         }
 
-        // بناء بطاقات المنتجات
         function renderProducts(products) {
             const grid = document.getElementById('products-grid');
             grid.innerHTML = products.map(p => `
                 <div class="product-card" onclick="openProduct(${p.id})">
-                    <div class="img-container"><img src="${p.img}" alt="${p.name}"></div>
+                    <div class="img-container">
+                        <img src="${p.img}" alt="${p.name}" loading="lazy">
+                    </div>
                     <h3>${p.name}</h3>
                     <span class="price">${p.price.toLocaleString()} درهم</span>
                 </div>
             `).join('');
         }
 
-        // فتح نافذة تفاصيل المنتج
         function openProduct(id) {
             const product = allProducts.find(p => p.id === id);
+            if(!product) return;
+            
             document.getElementById('modal-title').innerText = product.name;
             document.getElementById('modal-price').innerText = product.price.toLocaleString() + " درهم";
             document.getElementById('modal-description').innerText = product.description;
             document.getElementById('modal-image').src = product.img;
             document.getElementById('product-qty').value = 1;
-            document.getElementById('modal-add-btn').onclick = () => addToCart(product, parseInt(document.getElementById('product-qty').value));
+            
+            document.getElementById('modal-add-btn').onclick = function() {
+                addToCart(product, parseInt(document.getElementById('product-qty').value));
+            };
+            
             document.getElementById('product-modal').style.display = 'flex';
         }
 
-        // إغلاق النافذة
-        function closeModal() { document.getElementById('product-modal').style.display = 'none'; }
+        function closeModal() {
+            document.getElementById('product-modal').style.display = 'none';
+        }
 
-        // إضافة للسلة مع حفظ محلي
         function addToCart(product, qty) {
-            cart.push({ ...product, qty, uniqueId: Date.now() });
-            saveAndRefresh();
+            const newItem = { ...product, qty: qty, uniqueId: Date.now() };
+            cart.push(newItem);
+            saveCart();
             closeModal();
+            showToast();
+        }
+
+        function showToast() {
             const toast = document.getElementById('toast');
             toast.style.opacity = '1';
             setTimeout(() => toast.style.opacity = '0', 2500);
         }
 
-        // حذف من السلة
         function removeFromCart(uid) {
             cart = cart.filter(item => item.uniqueId !== uid);
-            saveAndRefresh();
+            saveCart();
         }
 
-        // التحديث والحفظ
-        function saveAndRefresh() {
-            localStorage.setItem('luxora_full_cart', JSON.stringify(cart));
-            updateUI();
+        function saveCart() {
+            localStorage.setItem('luxora_full_storage', JSON.stringify(cart));
+            updateCartUI();
         }
 
-        // تحديث واجهة السلة والعداد
-        function updateUI() {
+        function updateCartUI() {
             document.getElementById('cart-count').innerText = cart.length;
             const container = document.getElementById('cart-items-container');
             let total = 0;
+            
             container.innerHTML = cart.map(item => {
                 total += (item.price * item.qty);
                 return `
@@ -633,31 +619,39 @@
                     </div>
                 `;
             }).join('');
+            
             document.getElementById('final-price').innerText = total.toLocaleString() + " درهم";
         }
 
-        // فتح وإغلاق السلة الجانبية
-        function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('active'); }
+        function toggleCart() {
+            document.getElementById('cart-sidebar').classList.toggle('active');
+        }
 
-        // إتمام الطلب عبر واتساب
         function checkout() {
-            if (cart.length === 0) return alert("الحقيبة فارغة!");
+            if (cart.length === 0) {
+                alert("الحقيبة فارغة حالياً!");
+                return;
+            }
             const phone = "212621445495";
-            let message = "*طلب ملكي جديد من LUXORA*\n------------------\n";
-            cart.forEach((i, idx) => message += `${idx+1}. ${i.name} (x${i.qty})\n`);
-            message += `------------------\n*الإجمالي:* ${document.getElementById('final-price').innerText}`;
+            let message = "*طلب ملكي جديد من LUXORA*\n";
+            message += "--------------------------\n";
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} | الكمية: ${item.qty}\n`;
+            });
+            message += "--------------------------\n";
+            message += `*الإجمالي:* ${document.getElementById('final-price').innerText}\n`;
+            message += "يرجى التواصل لتأكيد التوصيل.";
+            
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // التشغيل الأولي عند تحميل الصفحة
         window.onload = () => {
-            updateUI();
-            // إخفاء الـ Loader بعد مدة بسيطة
+            updateCartUI();
             setTimeout(() => {
                 const loader = document.getElementById('loader');
                 loader.style.opacity = '0';
                 setTimeout(() => loader.style.visibility = 'hidden', 1000);
-            }, 1800);
+            }, 2000);
         };
     </script>
 </body>

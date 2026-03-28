@@ -142,12 +142,6 @@
         .selection-half:hover h2 { transform: translateY(-10px); color: var(--gold); }
         .selection-half:hover p { opacity: 1; transform: translateY(0); }
 
-        /* استجابة الشاشة للشاشات الصغيرة */
-        @media (max-width: 768px) {
-            #entry-screen { flex-direction: column; }
-            .selection-half h2 { font-size: 2rem; }
-        }
-
         /* --- 5. الهيدر (Sticky Header) --- */
         header { 
             position: sticky;
@@ -161,6 +155,7 @@
             align-items: center; 
             border-bottom: 1px solid rgba(197, 160, 89, 0.3);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            height: 85px;
         }
 
         #back-btn-container {
@@ -216,15 +211,11 @@
         /* --- 6. شبكة عرض المنتجات --- */
         main { 
             display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 30px; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 50px; 
             padding: 60px 5%; 
             max-width: 1400px;
             margin: 0 auto;
-        }
-
-        @media (min-width: 1024px) {
-            main { grid-template-columns: repeat(3, 1fr); gap: 50px; }
         }
 
         .product-card { 
@@ -316,11 +307,6 @@
             display: flex; flex-direction: column; justify-content: center; 
         }
         
-        @media (max-width: 850px) {
-            .modal-img { height: 350px; min-width: 100%; }
-            .modal-info { padding: 40px 30px; min-width: 100%; }
-        }
-
         .modal-info h2 { font-family: 'Cinzel', serif; font-size: 2.2rem; margin-bottom: 20px; color: var(--dark); border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 10px; }
         .modal-info p { color: #555; font-size: 1.1rem; line-height: 2; margin-bottom: 35px; text-align: justify; }
 
@@ -345,7 +331,6 @@
             border-right: 4px solid var(--gold);
         }
         .sidebar.active { left: 0; }
-        @media (max-width: 767px) { .sidebar { width: 100%; } }
 
         .sidebar-header {
             display: flex; justify-content: space-between; align-items: center;
@@ -380,6 +365,46 @@
             font-weight: 900; opacity: 0; transition: 0.6s; z-index: 9999;
             border: 1px solid var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.4);
             letter-spacing: 2px; pointer-events: none;
+        }
+
+        /* ============================================================
+           نظام الاستجابة (Responsive Design) - لا اختصارات هنا
+           ============================================================ */
+        
+        @media (max-width: 1024px) {
+            main { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            header { padding: 15px 5%; }
+        }
+
+        @media (max-width: 768px) {
+            #entry-screen { flex-direction: column; }
+            .selection-half h2 { font-size: 2.2rem; letter-spacing: 4px; }
+            .selection-half p { opacity: 1; transform: translateY(0); font-size: 0.9rem; }
+            
+            header { height: 70px; padding: 10px 4%; }
+            .logo-text { font-size: 22px; letter-spacing: 3px; }
+            #back-btn-container span { display: none; } /* إخفاء كلمة Back في الهاتف للسماح بالمساحة */
+
+            main { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 25px 3%; }
+            .img-container { height: 210px; margin-bottom: 15px; }
+            .product-card { padding: 12px; }
+            .product-card h3 { font-size: 0.9rem; margin-bottom: 6px; }
+            .product-card .price { font-size: 1.1rem; }
+
+            .modal-content { flex-direction: column; max-height: 92vh; overflow-y: auto; }
+            .modal-img { min-width: 100%; height: 320px; }
+            .modal-info { min-width: 100%; padding: 35px 25px; }
+            .modal-info h2 { font-size: 1.7rem; }
+            .modal-info p { font-size: 1rem; line-height: 1.7; margin-bottom: 25px; }
+
+            .sidebar { width: 100%; padding: 40px 25px; }
+            .sidebar-header h3 { font-size: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            main { grid-template-columns: 1fr; gap: 25px; } /* تحويل لعمود واحد في الهواتف الصغيرة جداً لجمالية الصورة */
+            .img-container { height: 300px; }
+            .logo-text { font-size: 18px; }
         }
     </style>
 </head>
@@ -458,7 +483,7 @@
     <div id="toast">ADDED TO COLLECTION</div>
 
     <script>
-        // قاعدة البيانات الكاملة مع تعديل خاتم الياقوت
+        // قاعدة البيانات الكاملة لجميع المنتجات
         const allProducts = [
             // --- فئة النساء (Women) ---
             { 
@@ -500,24 +525,24 @@
             },
             { 
                 id: 8, type: 'men', name: "خاتم فضة 925 نقي", price: 7000, 
-                description: "قطعة فنية فريدة من الفضة النقية بتصميم مستوحى من العمارة الأندلسية.", 
+                description: "قطعة فنية فريدة من الفضة النقية بتصميم مستوحى من العمارة الأندلسية العريقة.", 
                 img: "https://fathyibrahim.com/cdn/shop/files/MR00-3S-8-1_1000x.jpg?v=1742217351" 
             },
             { 
                 id: 9, type: 'men', name: "ساعة الستانلس الكلاسيكية", price: 4100, 
-                description: "ساعة تجمع بين العملية والفخامة، مع ميناء أسود ملكي وعقارب مضيئة.", 
+                description: "ساعة تجمع بين العملية والفخامة، مع ميناء أسود ملكي وعقارب مضيئة في الظلام.", 
                 img: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=800" 
             },
             { 
                 id: 10, type: 'men', name: "أزرار أكمام ألماسية", price: 1550, 
-                description: "أزرار أكمام مصنوعة من البلاتين المرصع بحبيبات الألماس الدقيقة.", 
+                description: "أزرار أكمام مصنوعة من البلاتين المرصع بحبيبات الألماس الدقيقة لتكتمل أناقتك الرسمية.", 
                 img: "https://images.unsplash.com/photo-1617113931036-70138927054a?w=800" 
             }
         ];
 
         let cart = JSON.parse(localStorage.getItem('luxora_full_cart')) || [];
 
-        // منطق التحكم
+        // منطق التحكم والدخول للمتجر
         function enterStore(category) {
             const filtered = allProducts.filter(p => p.type === category);
             renderProducts(filtered);
@@ -526,11 +551,13 @@
             window.scrollTo(0,0);
         }
 
+        // العودة لشاشة اختيار القسم
         function goBackToHome() {
             document.getElementById('entry-screen').style.transform = 'translateY(0)';
             document.getElementById('back-btn-container').classList.remove('visible');
         }
 
+        // بناء بطاقات المنتجات
         function renderProducts(products) {
             const grid = document.getElementById('products-grid');
             grid.innerHTML = products.map(p => `
@@ -542,6 +569,7 @@
             `).join('');
         }
 
+        // فتح نافذة تفاصيل المنتج
         function openProduct(id) {
             const product = allProducts.find(p => p.id === id);
             document.getElementById('modal-title').innerText = product.name;
@@ -553,8 +581,10 @@
             document.getElementById('product-modal').style.display = 'flex';
         }
 
+        // إغلاق النافذة
         function closeModal() { document.getElementById('product-modal').style.display = 'none'; }
 
+        // إضافة للسلة مع حفظ محلي
         function addToCart(product, qty) {
             cart.push({ ...product, qty, uniqueId: Date.now() });
             saveAndRefresh();
@@ -564,16 +594,19 @@
             setTimeout(() => toast.style.opacity = '0', 2500);
         }
 
+        // حذف من السلة
         function removeFromCart(uid) {
             cart = cart.filter(item => item.uniqueId !== uid);
             saveAndRefresh();
         }
 
+        // التحديث والحفظ
         function saveAndRefresh() {
             localStorage.setItem('luxora_full_cart', JSON.stringify(cart));
             updateUI();
         }
 
+        // تحديث واجهة السلة والعداد
         function updateUI() {
             document.getElementById('cart-count').innerText = cart.length;
             const container = document.getElementById('cart-items-container');
@@ -593,8 +626,10 @@
             document.getElementById('final-price').innerText = total.toLocaleString() + " درهم";
         }
 
+        // فتح وإغلاق السلة الجانبية
         function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('active'); }
 
+        // إتمام الطلب عبر واتساب
         function checkout() {
             if (cart.length === 0) return alert("الحقيبة فارغة!");
             const phone = "212621445495";
@@ -604,8 +639,10 @@
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
+        // التشغيل الأولي عند تحميل الصفحة
         window.onload = () => {
             updateUI();
+            // إخفاء الـ Loader بعد مدة بسيطة
             setTimeout(() => {
                 const loader = document.getElementById('loader');
                 loader.style.opacity = '0';

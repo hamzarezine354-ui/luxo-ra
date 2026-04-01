@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LUXORA | Exclusive Ladies Boutique</title>
+    <title>LUNOVRA | Exclusive Ladies Boutique</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
     
@@ -171,10 +171,10 @@
 </head>
 <body>
 
-    <div id="loader"><div class="loader-logo">LUXORA</div></div>
+    <div id="loader"><div class="loader-logo">LUNOVRA</div></div>
 
     <header>
-        <div></div> <div class="logo-text">LUXORA</div>
+        <div></div> <div class="logo-text">LUNOVRA</div>
         <div class="cart-icon-wrap" onclick="toggleCart()">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
             <span id="cart-count">0</span>
@@ -308,7 +308,7 @@
         function checkout() {
             if(cart.length === 0) return alert("الحقيبة فارغة");
             const phone = "212621445495";
-            let text = "*طلب جديد - LUXORA*\n\n";
+            let text = "*طلب جديد - LUNOVRA*\n\n";
             cart.forEach((i, n) => text += `${n+1}. ${i.name} - ${i.price} MAD\n`);
             text += `\n*الإجمالي:* ${document.getElementById('total-price').innerText}`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`);

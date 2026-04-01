@@ -89,7 +89,7 @@
         .product-card h3 { font-size: 0.9rem; margin-bottom: 5px; height: 2.5em; overflow: hidden; font-weight: 700; color: #333; }
         .product-card .price { color: var(--gold); font-weight: 900; font-family: 'Cinzel', serif; font-size: 1.1rem; }
 
-        /* تعديلات المودال للحاسوب والجوانب */
+        /* تعديلات المودال */
         .modal { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.85); z-index: 5000; justify-content: center; align-items: flex-end; 
@@ -105,9 +105,22 @@
         }
         @media (min-width: 768px) { .modal-content { width: 480px; border-radius: 15px; } }
         
-        .modal-img { width: 100%; height: auto; max-height: 350px; object-fit: cover; }
+        /* تعديل حاوية الصورة لضمان تناسق العقد */
+        .modal-img-box {
+            width: 100%;
+            height: 300px;
+            background: #fcfcfc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        .modal-img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; /* يمنع اقتصاص الصورة */
+        }
         
-        /* المسافات الداخلية للنصوص */
         .modal-body { 
             padding: 25px 30px; 
             flex: 1; 
@@ -175,7 +188,9 @@
             <div style="position:absolute; top:15px; left:15px; z-index:10;">
                 <div class="close-btn-royal" onclick="closeModal()">✕</div>
             </div>
-            <div class="modal-img-box"><img id="modal-image" src="" class="modal-img"></div>
+            <div class="modal-img-box">
+                <img id="modal-image" src="" class="modal-img">
+            </div>
             <div class="modal-body">
                 <h2 id="modal-title" style="font-family:'Cinzel'; margin-bottom: 10px;"></h2>
                 <div id="modal-price" style="color:var(--gold); font-weight:900; font-size:1.5rem; margin-bottom: 15px;"></div>
@@ -293,7 +308,7 @@
         function checkout() {
             if(cart.length === 0) return alert("الحقيبة فارغة");
             const phone = "212621445495";
-            let text = "*طلب نسائي جديد - LUXORA*\n\n";
+            let text = "*طلب جديد - LUXORA*\n\n";
             cart.forEach((i, n) => text += `${n+1}. ${i.name} - ${i.price} MAD\n`);
             text += `\n*الإجمالي:* ${document.getElementById('total-price').innerText}`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`);
